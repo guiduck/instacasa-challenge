@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
+import Hero from '../src/components/Hero';
 
 const Home: React.FC = () => {
   return (
@@ -7,6 +8,8 @@ const Home: React.FC = () => {
       <Head>
         <title>Home</title>
       </Head>
+
+      <Hero />
     </div>
   )
 }

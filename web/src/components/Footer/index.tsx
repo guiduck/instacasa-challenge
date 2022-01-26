@@ -1,5 +1,12 @@
-import { chakra, Flex, Link, Text, useColorModeValue, VStack } from '@chakra-ui/react';
+import {
+  chakra,
+  Flex,
+  useColorModeValue,
+  VStack
+} from '@chakra-ui/react';
 import React from 'react';
+import { AiFillGithub } from 'react-icons/ai';
+import LinkCustom from '../LinkCustom';
 
 const Footer: React.FC = () => {
 
@@ -28,9 +35,12 @@ const Footer: React.FC = () => {
               25/01/2022
             </chakra.p>
             <chakra.p fontSize='sm' color='#FFF'>
-              <Link href='https://github.com/guiduck'>
+              {/* <Link href='https://github.com/guiduck'>
                 <chakra.a target='_blank'>https://github.com/guiduck</chakra.a>
-              </Link>
+              </Link> */}
+              <LinkCustom url='https://github.com/guiduck' icon={AiFillGithub}>
+                My Github
+              </LinkCustom>
             </chakra.p>
           </VStack>
         </Flex>

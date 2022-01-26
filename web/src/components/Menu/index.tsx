@@ -33,6 +33,7 @@ const Menu: React.FC = () => {
               Teste Instacasa
             </chakra.h1>
           </Flex>
+
           <HStack display="flex" alignItems="center" spacing={1}>
             <HStack
               spacing={1}
