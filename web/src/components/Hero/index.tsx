@@ -15,13 +15,12 @@ const Hero: React.FC = () => {
           fontWeight="bold"
           lineHeight="none"
           letterSpacing={{ base: "normal", md: "tight" }}
-          color={useColorModeValue("gray.900",'gray.100')}
         >
           <Text
             display={{ base: "block", lg: "inline" }}
             w="full"
             bgClip="text"
-            bgGradient="linear(to-r, #FCC700, #212121)"
+            color='#FCC700'
             fontWeight="extrabold"
           >
            Seja Bem-Vindo!!
