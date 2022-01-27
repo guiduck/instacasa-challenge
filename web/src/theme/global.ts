@@ -15,6 +15,12 @@ const global = extendTheme({
     },
   },
 
+  breakpoints: {
+    lg: '992px',
+    xl: '993px',
+    '2xl': '1500px'
+  },
+
   components: {
     Link: {
       baseStyle: {

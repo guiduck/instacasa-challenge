@@ -1,9 +1,10 @@
-import { Box, chakra, Flex, Icon, Image, Input, InputGroup, InputLeftElement, Spinner, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, Image, Spinner, useColorModeValue } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { useUserContext } from '../../src/contexts/UserContext';
-import { MdEmail, MdAccountCircle, MdOutlineFaceRetouchingNatural, MdPhoneIphone } from "react-icons/md";
+import { MdEmail, MdAccountCircle, MdOutlineFaceRetouchingNatural } from "react-icons/md";
 import { PhoneIcon } from '@chakra-ui/icons';
+import InputCustom from '../../src/components/InputCustom/Index';
 
 type User = {
   id: number,
@@ -32,7 +33,7 @@ const Details: React.FC = () => {
     >
       {!loading && users ?
         <Box
-          w="sm"
+          w="lg"
           mx="auto"
           bg={useColorModeValue("white", "gray.800")}
           shadow="lg"
@@ -48,68 +49,49 @@ const Details: React.FC = () => {
             alt="avatar"
           />
 
-          <Flex justifyContent='space-between' alignItems="center" px={6} py={3} bg="gray.900">
+          <Flex direction='column' w='full' py={4} px={6}>
 
-            <chakra.h1 mx={3} color="white" fontWeight="bold" fontSize="lg">
-              {users[Number(id)-1]?.name}
-            </chakra.h1>
+            <Flex w='full' direction={{base:'column', lg: 'row', xl: 'row'}}>
 
-            <Icon as={MdOutlineFaceRetouchingNatural} h={6} w={6} color="white" />
+              <Flex
+                alignItems="center"
+                mt={4}
+                w={{base: 'full', lg: 'full', xl: '50%'}}
+                color={useColorModeValue("gray.700", "gray.200")}
+              >
+                <InputCustom placeholder={users[Number(id)-1]?.name} icon={MdOutlineFaceRetouchingNatural} size={25} />
+              </Flex>
+
+              <Flex
+                alignItems="center"
+                w={{base: 'full', lg: 'full', xl: '50%'}}
+                mt={4}
+                color={useColorModeValue("gray.700", "gray.200")}
+              >
+                <InputCustom placeholder={users[Number(id)-1]?.phone} icon={PhoneIcon} size={16} />
+              </Flex>
+            </Flex>
+
+            <Flex direction={{base:'column', lg: 'row', xl: 'row'}}>
+
+              <Flex
+                alignItems="center"
+                w={{base: 'full', lg: 'full', xl: '50%'}}
+                mt={4}
+                color={useColorModeValue("gray.700", "gray.200")}
+              >
+                <InputCustom placeholder={users[Number(id)-1]?.username} icon={MdAccountCircle} size={25} />
+              </Flex>
+              <Flex
+                alignItems="center"
+                w={{base: 'full', lg: 'full', xl: '50%'}}
+                mt={4}
+                color={useColorModeValue("gray.700", "gray.200")}
+              >
+                <InputCustom placeholder={users[Number(id)-1]?.email} icon={MdEmail} size={23} />
+              </Flex>
+            </Flex>
           </Flex>
-          <InputGroup>
-            <InputLeftElement
-              pointerEvents='none'
-              children={<PhoneIcon color='gray.300' />}
-            />
-            <Input borderRadius='4px' placeholder={users[Number(id)-1]?.phone} />
-          </InputGroup>
-          <Input></Input>
-
-          <Box py={4} px={6}>
-            <chakra.p py={2} color={useColorModeValue("gray.700", "gray.400")}>
-              {`lorem ipsum text`.repeat(12)}
-            </chakra.p>
-
-            <Flex
-              alignItems="center"
-              mt={4}
-              color={useColorModeValue("gray.700", "gray.200")}
-            >
-              <Icon
-                as={MdPhoneIphone}
-                h={6}
-                w={6}
-                mr={2}
-              />
-
-              <chakra.h1 px={2} fontSize="sm">
-                {users[Number(id)-1]?.phone}
-              </chakra.h1>
-            </Flex>
-
-            <Flex
-              alignItems="center"
-              mt={4}
-              color={useColorModeValue("gray.700", "gray.200")}
-            >
-              <Icon as={MdAccountCircle} h={6} w={6} mr={2} />
-
-              <chakra.h1 px={2} fontSize="sm">
-                {users[Number(id)-1]?.username}
-              </chakra.h1>
-            </Flex>
-            <Flex
-              alignItems="center"
-              mt={4}
-              color={useColorModeValue("gray.700", "gray.200")}
-            >
-              <Icon as={MdEmail} h={6} w={6} mr={2} />
-
-              <chakra.h1 px={2} fontSize="sm">
-                {users[Number(id)-1]?.email}
-              </chakra.h1>
-            </Flex>
-          </Box>
         </Box>
       :
         <Spinner size='xl' />
