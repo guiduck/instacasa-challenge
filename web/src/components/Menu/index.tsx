@@ -15,12 +15,17 @@ import {
 import { AiOutlineMenu } from "react-icons/ai";
 import Link from 'next/link'
 import React from 'react';
+import Router from 'next/router'
 
 const Menu: React.FC = () => {
 
   const bg = useColorModeValue("#FCC700", "gray.800");
   const textColor = useColorModeValue('#212121', 'white')
   const mobileNav = useDisclosure();
+
+  const handleRedirect = (url: string) => {
+    Router.push(`${url}`)
+  }
 
   return (
     <>
@@ -54,8 +59,18 @@ const Menu: React.FC = () => {
               color="brand.500"
               display={{ base: "none", md: "inline-flex" }}
             >
-              <Button variant="ghost">Home</Button>
-              <Button variant="ghost">Usuários</Button>
+              <Button
+                variant="ghost"
+                onClick={() => handleRedirect('/')}
+              >
+                Home
+              </Button>
+              <Button
+                variant="ghost"
+                onClick={() => handleRedirect('/users')}
+              >
+                Usuários
+              </Button>
               <Button variant="ghost">
                 <Link href='https://blog.instacasa.com.br/' >
                   <a target='_blank'>
@@ -100,10 +115,18 @@ const Menu: React.FC = () => {
                   onClick={mobileNav.onClose}
                 />
 
-                <Button w="full" variant="ghost">
+                <Button
+                  w="full"
+                  variant="ghost"
+                  onClick={() => handleRedirect('/')}
+                >
                   Home
                 </Button>
-                <Button w="full" variant="ghost">
+                <Button
+                  w="full"
+                  variant="ghost"
+                  onClick={() => handleRedirect('/users')}
+                >
                   Usuários
                 </Button>
                 <Button w="full" variant="ghost">

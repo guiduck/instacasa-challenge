@@ -9,7 +9,7 @@ const Layout: React.FC = ({ children }) => {
   const { toggleColorMode, colorMode } = useColorMode();
 
   return (
-    <Flex direction='column'>
+    <Flex direction='column' >
 
       <Menu />
 
@@ -25,13 +25,13 @@ const Layout: React.FC = ({ children }) => {
       </Flex>
       {children}
 
-      <Box
-        position='fixed'
-        bottom='0'
+      <Flex
+        // position='fixed'
+        // bottom='0'
         w='full'
       >
         <Footer />
-      </Box>
+      </Flex>
     </Flex>
   )
 }

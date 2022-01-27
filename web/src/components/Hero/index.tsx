@@ -1,13 +1,14 @@
-import { Box, chakra, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, chakra, Flex, Text, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <Box px={8} py={24} mx="auto">
+    <Flex px={8} py={24} mx="auto" height='80vh' alignItems='center' justifyContent='center'>
       <Box
         w={{ base: "full", md: 11 / 12, xl: 9 / 12 }}
         mx="auto"
-        textAlign={{ base: "left", md: "center" }}
+        textAlign={{ base: "center", md: "center" }}
+
       >
         <chakra.h1
           mb={6}
@@ -36,7 +37,7 @@ const Hero: React.FC = () => {
           criada com o objetivo de ajudar as pessoas a visualizarem a casa dos sonhos no momento da compra de seu lote.
         </chakra.p> */}
       </Box>
-    </Box>
+    </Flex>
   )
 }
 

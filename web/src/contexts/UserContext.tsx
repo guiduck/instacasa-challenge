@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react"
 import useApi from '../hooks/useApi'
 
 type User = {
+  id: number,
   name: string,
   email: string,
   username: string,
@@ -30,7 +31,6 @@ export const UserProvider = ({ children }) => {
     if (response) {
       const { data } = response
       setUsers(data)
-      console.log(data)
     }
 
   }, [response]);
