@@ -23,7 +23,7 @@ const LinkCustom: React.FC<Props> = ({ children, url, icon }) => {
           <Box px={3}>
             {children}
           </Box>
-          {React.createElement(icon, {color: 'white', fontSize: 22})}
+          {React.createElement(icon, {color: 'white', fontSize: 24})}
         </Flex>
       </a>
     </Link>

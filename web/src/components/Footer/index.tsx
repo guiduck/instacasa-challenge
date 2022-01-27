@@ -10,7 +10,7 @@ import LinkCustom from '../LinkCustom';
 
 const Footer: React.FC = () => {
 
-  const bg = useColorModeValue("#212121", "gray.800");
+  const bg = useColorModeValue("#212121", "#212121");
 
   return (
     <>
@@ -18,8 +18,8 @@ const Footer: React.FC = () => {
         bg={bg}
         w="full"
         px={{ base: 2, sm: 4 }}
-        py={4}
-        height='100px'
+        py='20px'
+        height='auto'
       >
         <Flex justifyContent='center'>
           <VStack
@@ -35,9 +35,6 @@ const Footer: React.FC = () => {
               25/01/2022
             </chakra.p>
             <chakra.p fontSize='sm' color='#FFF'>
-              {/* <Link href='https://github.com/guiduck'>
-                <chakra.a target='_blank'>https://github.com/guiduck</chakra.a>
-              </Link> */}
               <LinkCustom url='https://github.com/guiduck' icon={AiFillGithub}>
                 My Github
               </LinkCustom>

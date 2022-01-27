@@ -7,6 +7,7 @@ import {
   HStack,
   IconButton,
   Image,
+  Text,
   useColorModeValue,
   useDisclosure,
   VisuallyHidden,
@@ -19,8 +20,8 @@ import Router from 'next/router'
 
 const Menu: React.FC = () => {
 
-  const bg = useColorModeValue("#FCC700", "gray.800");
-  const textColor = useColorModeValue('#212121', 'white')
+  const bg = useColorModeValue("#FCC700", "#212121");
+  const textColor = useColorModeValue('#212121', 'gray.200')
   const mobileNav = useDisclosure();
 
   const handleRedirect = (url: string) => {
@@ -32,22 +33,20 @@ const Menu: React.FC = () => {
       <chakra.header
         bg={bg}
         w="full"
-        px={{ base: 2, sm: 4 }}
-        py={4}
         shadow="md"
       >
-        <Flex alignItems="center" justifyContent="space-between" mx="auto">
+        <Flex alignItems="center" justifyContent="space-between" mx="auto" p='20px'>
           <Flex alignItems='center'>
             <chakra.a
               href="/"
-              title="Choc Home Page"
+              title="Home Page"
               display="flex"
               alignItems="center"
             >
               <Image src='https://via.placeholder.com/100/fff' alt='Logo' />
               <VisuallyHidden>Teste Instacasa</VisuallyHidden>
             </chakra.a>
-            <chakra.h1 fontSize='20px' fontWeight="medium" ml="2">
+            <chakra.h1 fontSize='20px' color={textColor} fontWeight="bold" ml="2">
               Teste Instacasa
             </chakra.h1>
           </Flex>
@@ -55,35 +54,24 @@ const Menu: React.FC = () => {
           <HStack display="flex" alignItems="center" spacing={1}>
             <HStack
               spacing={1}
+              gap={10}
               mr={1}
-              color="brand.500"
               display={{ base: "none", md: "inline-flex" }}
             >
-              <Button
-                variant="ghost"
-                onClick={() => handleRedirect('/')}
-              >
-                Home
-              </Button>
-              <Button
-                variant="ghost"
-                onClick={() => handleRedirect('/users')}
-              >
-                Usuários
-              </Button>
-              <Button variant="ghost">
-                <Link href='https://blog.instacasa.com.br/' >
-                  <a target='_blank'>
-                    Blog
-                  </a>
-                </Link>
-              </Button>
-            </HStack>
-            <Button colorScheme="yellow" size="sm">
-              <Link href='https://instacasa.com.br/'>
-                Sair
+              <Link href='/' >
+                <chakra.a color={textColor}> Home</chakra.a>
               </Link>
-            </Button>
+              <Link href='/users' >
+                <chakra.a color={textColor}>Usuários </chakra.a>
+              </Link>
+              <Link href='https://blog.instacasa.com.br/' >
+                <a target='_blank' ><Text color={textColor} _hover={{ color:'#FF8A00' }}>Blog</Text></a>
+              </Link>
+              <Link href='https://instacasa.com.br/' >
+                <chakra.a color={textColor}>Sair</chakra.a>
+              </Link>
+            </HStack>
+
             <Box display={{ base: "inline-flex", md: "none" }}>
               <IconButton
                 display={{ base: "flex", md: "none" }}
@@ -114,31 +102,30 @@ const Menu: React.FC = () => {
                   aria-label="Close menu"
                   onClick={mobileNav.onClose}
                 />
-
                 <Button
                   w="full"
-                  variant="ghost"
-                  onClick={() => handleRedirect('/')}
+                  // onClick={() => handleRedirect('/')}
                 >
-                  Home
-                </Button>
-                <Button
-                  w="full"
-                  variant="ghost"
-                  onClick={() => handleRedirect('/users')}
-                >
-                  Usuários
-                </Button>
-                <Button w="full" variant="ghost">
-                  <Link href='https://blog.instacasa.com.br/' >
-                    <a target='_blank'>
-                      Blog
-                    </a>
+                  <Link href='/' >
+                    <chakra.a color={textColor}> Home</chakra.a>
                   </Link>
                 </Button>
-                <Button w="full" variant="ghost">
-                  <Link href='https://instacasa.com.br/'>
-                    Sair
+                <Button
+                  w="full"
+                  // onClick={() => handleRedirect('/users')}
+                >
+                  <Link href='/users' >
+                    <chakra.a color={textColor}>Usuários </chakra.a>
+                  </Link>
+                </Button>
+                <Button w="full" >
+                  <Link href='https://blog.instacasa.com.br/' >
+                    <a target='_blank' ><Text color={textColor} _hover={{ color:'#FF8A00' }}>Blog</Text></a>
+                  </Link>
+                </Button>
+                <Button w="full">
+                  <Link href='https://instacasa.com.br/' >
+                    <chakra.a color={textColor}>Sair</chakra.a>
                   </Link>
                 </Button>
               </VStack>

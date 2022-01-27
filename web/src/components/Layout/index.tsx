@@ -15,7 +15,8 @@ const Layout: React.FC = ({ children }) => {
 
       <Flex style={{position: 'absolute', right: 20}}>
         <IconButton
-          bg={useColorModeValue('gray.200', 'gray.700')}
+          bg={useColorModeValue('rgba(0, 0, 0, 0)', 'gray.700')}
+          _hover={{bg: useColorModeValue('#ffe60081', '#dbddff73')}}
           p={2}
           aria-label="theme"
           fontSize="20px"
@@ -26,8 +27,6 @@ const Layout: React.FC = ({ children }) => {
       {children}
 
       <Flex
-        // position='fixed'
-        // bottom='0'
         w='full'
       >
         <Footer />

@@ -11,6 +11,7 @@ type User = {
 
 type UserContextType = {
   users: User[],
+  loading: boolean
 }
 
 export const UserContext = createContext({} as UserContextType)
@@ -35,9 +36,8 @@ export const UserProvider = ({ children }) => {
 
   }, [response]);
 
-
   return (
-    <UserContext.Provider value={{ users }}>
+    <UserContext.Provider value={{ users, loading }}>
       {children}
     </UserContext.Provider>
   )

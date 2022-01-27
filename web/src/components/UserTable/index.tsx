@@ -1,4 +1,4 @@
-import { Button, chakra, Flex, SimpleGrid, Stack, useBreakpointValue, useColorModeValue } from '@chakra-ui/react';
+import { Button, chakra, Divider, Flex, SimpleGrid, Stack, useBreakpointValue, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 import Link from 'next/link'
 
@@ -18,8 +18,7 @@ const UserTable: React.FC<Props> = ({ users }) => {
     <>
       <Flex
       w="full"
-      bg="gray.600"
-      p={50}
+      bg={useColorModeValue("white", "gray.800")}
       alignItems="center"
       justifyContent="center"
     >
@@ -36,9 +35,8 @@ const UserTable: React.FC<Props> = ({ users }) => {
               bg={useColorModeValue("white", "gray.800")}
               key={user.id}
             >
-              {useBreakpointValue({ base: true, md: index === 0 }) && (
+              {useBreakpointValue({ base: false, md: index === 0 }) && (
                 <SimpleGrid
-                  spacingY={3}
                   columns={{ base: 1, md: 3 }}
                   w={{ base: 120, md: "full" }}
                   textTransform="uppercase"
@@ -49,17 +47,17 @@ const UserTable: React.FC<Props> = ({ users }) => {
                   fontSize="md"
                   fontWeight="hairline"
                   display="table-header-group"
+                  shadow="md"
+                  borderBottom='0.4px solid rgba(0, 0, 0, 0.3)'
                 >
                   <Flex justifyContent='space-between' >
                     <chakra.span textAlign={{ md: "left" }}>Name</chakra.span>
                     <chakra.span textAlign={{ md: "center" }}>Email</chakra.span>
                     <chakra.span textAlign={{ md: "right" }}>User Details</chakra.span>
                   </Flex>
-
                 </SimpleGrid>
               )}
               <SimpleGrid
-                spacingY={3}
                 columns={{ base: 1, md: 3 }}
                 w="full"
                 py={2}
@@ -76,13 +74,14 @@ const UserTable: React.FC<Props> = ({ users }) => {
                   {user.email}
                 </chakra.span>
                 <Flex justify={{ md: "end" }}>
-                  <Button variant="solid" colorScheme="red" size="sm">
+                  <Button variant="solid" colorScheme="gray" p={-3} size="sm">
                     <Link href={`/users/${user.id}`}>
-                      Abrir
+                      <chakra.a color='' p={3}>Abrir</chakra.a>
                     </Link>
                   </Button>
                 </Flex>
               </SimpleGrid>
+              <Divider orientation='horizontal' />
             </Flex>
           );
         })}
