@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Spinner, useColorModeValue } from '@chakra-ui/react';
+import { Box, Button, chakra, Flex, Image, Link, Spinner, useColorModeValue } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { useUserContext } from '../../src/contexts/UserContext';
@@ -91,6 +91,10 @@ const Details: React.FC = () => {
                 <InputCustom placeholder={users[Number(id)-1]?.email} icon={MdEmail} size={23} />
               </Flex>
             </Flex>
+
+            <Button variant="solid" mt={5} colorScheme="gray" p={-2} size="sm" onClick={() => router.back()}>
+              <chakra.a  style={{textDecoration: 'none',}}>Voltar</chakra.a>
+            </Button>
           </Flex>
         </Box>
       :
