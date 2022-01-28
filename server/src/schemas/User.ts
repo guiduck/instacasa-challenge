@@ -16,4 +16,17 @@ const userSchema = new Schema({
   timestamps: true
 })
 
+// Duplicate the ID field.
+userSchema.virtual('id').get(function(){
+  return this._id.toHexString();
+});
+
+// Ensure virtual fields are serialised.
+userSchema.set('toJSON', {
+  virtuals: true
+});
+
+//needed to see virtuals in output when using console.log
+userSchema.set('toObject', { virtuals: true })
+
 export default model<UserInterface>('user', userSchema)
