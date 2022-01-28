@@ -23,6 +23,8 @@ const Details: React.FC = () => {
 
   const { users, loading } = useUserContext()
 
+  const inputColor = useColorModeValue("gray.700", "gray.200")
+
   return (
     <Flex
       bg={useColorModeValue("#F9FAFB", "gray.600")}
@@ -57,18 +59,18 @@ const Details: React.FC = () => {
                 alignItems="center"
                 mt={4}
                 w={{base: 'full', lg: 'full', xl: '50%'}}
-                color={useColorModeValue("gray.700", "gray.200")}
+                color={inputColor}
               >
-                <InputCustom placeholder={users[Number(id)-1]?.name} icon={MdOutlineFaceRetouchingNatural} size={25} />
+                <InputCustom value={users[Number(id)-1]?.name} icon={MdOutlineFaceRetouchingNatural} size={25} />
               </Flex>
 
               <Flex
                 alignItems="center"
                 w={{base: 'full', lg: 'full', xl: '50%'}}
                 mt={4}
-                color={useColorModeValue("gray.700", "gray.200")}
+                color={inputColor}
               >
-                <InputCustom placeholder={users[Number(id)-1]?.phone} icon={PhoneIcon} size={16} />
+                <InputCustom value={users[Number(id)-1]?.phone} icon={PhoneIcon} size={16} />
               </Flex>
             </Flex>
 
@@ -78,17 +80,17 @@ const Details: React.FC = () => {
                 alignItems="center"
                 w={{base: 'full', lg: 'full', xl: '50%'}}
                 mt={4}
-                color={useColorModeValue("gray.700", "gray.200")}
+                color={inputColor}
               >
-                <InputCustom placeholder={users[Number(id)-1]?.username} icon={MdAccountCircle} size={25} />
+                <InputCustom value={users[Number(id)-1]?.username} icon={MdAccountCircle} size={25} />
               </Flex>
               <Flex
                 alignItems="center"
                 w={{base: 'full', lg: 'full', xl: '50%'}}
                 mt={4}
-                color={useColorModeValue("gray.700", "gray.200")}
+                color={inputColor}
               >
-                <InputCustom placeholder={users[Number(id)-1]?.email} icon={MdEmail} size={23} />
+                <InputCustom value={users[Number(id)-1]?.email} icon={MdEmail} size={23} />
               </Flex>
             </Flex>
 

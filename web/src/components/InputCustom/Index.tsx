@@ -1,4 +1,4 @@
-import { InputGroup, Input, InputRightElement, Flex } from '@chakra-ui/react';
+import { InputGroup, Input, InputRightElement } from '@chakra-ui/react';
 import React from 'react';
 
 interface IconTypeProps {
@@ -9,15 +9,15 @@ interface IconTypeProps {
 type IconType = (props: IconTypeProps) => JSX.Element;
 
 type Props = {
-  placeholder: string
+  value: string
   icon?: IconType
   size: number
 }
 
-const InputCustom: React.FC<Props> = ({ placeholder, icon, size }) => {
+const InputCustom: React.FC<Props> = ({ value, icon, size }) => {
   return (
     <InputGroup>
-      <Input p='10px' m='10px' borderRadius='4px' placeholder={placeholder} />
+      <Input p='10px' m='10px'  borderRadius='4px' value={value} />
       <InputRightElement
         pointerEvents='none'
         mr={2} mt={2}

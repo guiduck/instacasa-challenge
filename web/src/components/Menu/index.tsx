@@ -34,6 +34,7 @@ const Menu: React.FC = () => {
         bg={bg}
         w="full"
         shadow="md"
+        zIndex={1}
       >
         <Flex alignItems="center" justifyContent="space-between" mx="auto" p='20px'>
           <Flex alignItems='center'>
@@ -67,9 +68,10 @@ const Menu: React.FC = () => {
               <Link href='https://blog.instacasa.com.br/' >
                 <a target='_blank' ><Text color={textColor} _hover={{ color:'#FF8A00' }}>Blog</Text></a>
               </Link>
-              <Link href='https://instacasa.com.br/' >
-                <chakra.a color={textColor}>Sair</chakra.a>
+              <Link  href='https://instacasa.com.br/' >
+                <a><Text color={textColor} _hover={{ color:'#FF8A00' }}>Sair</Text></a>
               </Link>
+
             </HStack>
 
             <Box display={{ base: "inline-flex", md: "none" }}>
@@ -104,7 +106,6 @@ const Menu: React.FC = () => {
                 />
                 <Button
                   w="full"
-                  // onClick={() => handleRedirect('/')}
                 >
                   <Link href='/' >
                     <chakra.a color={textColor}> Home</chakra.a>
@@ -112,7 +113,6 @@ const Menu: React.FC = () => {
                 </Button>
                 <Button
                   w="full"
-                  // onClick={() => handleRedirect('/users')}
                 >
                   <Link href='/users' >
                     <chakra.a color={textColor}>Usuários </chakra.a>

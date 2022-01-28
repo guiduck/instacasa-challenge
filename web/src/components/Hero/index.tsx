@@ -2,6 +2,7 @@ import { Box, chakra, Flex, Text, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 
 const Hero: React.FC = () => {
+
   return (
     <Flex px={8} py={24} mx="auto" height='80vh' alignItems='center' justifyContent='center'>
       <Box
@@ -21,21 +22,12 @@ const Hero: React.FC = () => {
             display={{ base: "block", lg: "inline" }}
             w="full"
             bgClip="text"
-            color='#FCC700'
+            color={useColorModeValue('#212121', '#FCC700')}
             fontWeight="extrabold"
           >
            Seja Bem-Vindo!!
           </Text>
         </chakra.h1>
-        {/* <chakra.p
-          px={{ base: 0, lg: 24 }}
-          mb={6}
-          fontSize={{ base: "lg", md: "xl" }}
-          color={useColorModeValue("gray.600",'gray.300')}
-        >
-          uma startup inovadora que possui aspectos que colaboram com o mercado Imobiliário nacional,
-          criada com o objetivo de ajudar as pessoas a visualizarem a casa dos sonhos no momento da compra de seu lote.
-        </chakra.p> */}
       </Box>
     </Flex>
   )
