@@ -1,27 +1,35 @@
-import { Box, Button, chakra, Flex, Image, Link, Spinner, useColorModeValue } from '@chakra-ui/react';
+import { Box, Button, chakra, Flex, Image, Spinner, useColorModeValue } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useUserContext } from '../../src/contexts/UserContext';
 import { MdEmail, MdAccountCircle, MdOutlineFaceRetouchingNatural } from "react-icons/md";
 import { PhoneIcon } from '@chakra-ui/icons';
 import InputCustom from '../../src/components/InputCustom/Index';
 
 type User = {
-  id: number,
+  id?: string,
+  _id?: string,
   name: string,
   email: string,
-  username: string
+  username: string,
+  phone: string
 }
 
 const Details: React.FC = () => {
 
+  const { users, loading } = useUserContext()
   const router = useRouter()
+  const [user, setUser] = useState<User>(null)
 
   const {
     query: { id },
   } = router
 
-  const { users, loading } = useUserContext()
+  useEffect(() => {
+    if (users) {
+      users.find(user => {(user.id == id) ? setUser(user) : console.log('no id found')})
+    }
+  }, [id]);
 
   const inputColor = useColorModeValue("gray.700", "gray.200")
 
@@ -33,7 +41,7 @@ const Details: React.FC = () => {
       alignItems="center"
       justifyContent="center"
     >
-      {!loading && users ?
+      {!loading && user ?
         <Box
           w="lg"
           mx="auto"
@@ -61,7 +69,7 @@ const Details: React.FC = () => {
                 w={{base: 'full', lg: 'full', xl: '50%'}}
                 color={inputColor}
               >
-                <InputCustom value={users[Number(id)-1]?.name} icon={MdOutlineFaceRetouchingNatural} size={25} />
+                <InputCustom value={user?.name} icon={MdOutlineFaceRetouchingNatural} size={25} />
               </Flex>
 
               <Flex
@@ -70,7 +78,7 @@ const Details: React.FC = () => {
                 mt={4}
                 color={inputColor}
               >
-                <InputCustom value={users[Number(id)-1]?.phone} icon={PhoneIcon} size={16} />
+                <InputCustom value={user?.phone} icon={PhoneIcon} size={16} />
               </Flex>
             </Flex>
 
@@ -82,7 +90,7 @@ const Details: React.FC = () => {
                 mt={4}
                 color={inputColor}
               >
-                <InputCustom value={users[Number(id)-1]?.username} icon={MdAccountCircle} size={25} />
+                <InputCustom value={user?.username} icon={MdAccountCircle} size={25} />
               </Flex>
               <Flex
                 alignItems="center"
@@ -90,7 +98,7 @@ const Details: React.FC = () => {
                 mt={4}
                 color={inputColor}
               >
-                <InputCustom value={users[Number(id)-1]?.email} icon={MdEmail} size={23} />
+                <InputCustom value={user?.email} icon={MdEmail} size={23} />
               </Flex>
             </Flex>
 

@@ -18,7 +18,7 @@ const Layout: React.FC = ({ children }) => {
           bg={useColorModeValue('rgba(0, 0, 0, 0)', 'gray.700')}
           _hover={{bg: useColorModeValue('#ffe60081', '#dbddff73')}}
           p={2}
-          zIndex='2'
+          zIndex='3'
           aria-label="theme"
           fontSize="20px"
           icon={<>{colorMode === 'dark' ? <SunIcon/> : <MoonIcon/>}</>}

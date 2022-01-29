@@ -34,7 +34,7 @@ const Menu: React.FC = () => {
         bg={bg}
         w="full"
         shadow="md"
-        zIndex={1}
+        zIndex={2}
       >
         <Flex alignItems="center" justifyContent="space-between" mx="auto" p='20px'>
           <Flex alignItems='center'>
