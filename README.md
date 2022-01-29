@@ -1,5 +1,17 @@
 # WEB
-
+ 
+### For quick start:
+  
+  Go to both server and web files
+Install dependencies:
+```sh
+yarn (or npm i)
+```
+Done! Start the service:
+```sh
+yarn dev
+```
+  
 ### Overview
 
   This is a simple client side aplication made using NextJS, Typescript, eslint, prettier, Chakra-ui and Axios. 
@@ -24,6 +36,7 @@ This project was bootstrapped with [Create Next App](https://nextjs.org/docs/api
 * Styling: [Chakra-ui](https://chakra-ui.com) 
 * HTTP Client: [Axios](https://github.com/axios/axios)
 * Icons: [Chakra-ui](https://chakra-ui.com/docs/media-and-icons/icon) and [react-icons](https://react-icons.github.io/react-icons/icons?name=ai)
+* Form Control: [react-hook-form](https://react-hook-form.com)
 
 ### API
 * [json Placeholder](https://jsonplaceholder.typicode.com)
@@ -85,3 +98,65 @@ For more information refer to * [Next.js CLI](https://nextjs.org/docs/api-refere
 * `src/context` the QuizContext used for global state control of the quiz related data;
 * `src/Pages/` first level router components;
 * `src/services/` api default configuration;
+
+# server
+
+Node RESTful API for the [client](https://github.com/guiduck/instacasa-challenge/tree/main/web), built with **express**, **mongoose** and **typescript**.
+
+Provides a server to get, post and delete Users list
+
+## Usage
+
+Install dependencies:
+```sh
+yarn (or npm i)
+```
+Start the services:
+```sh
+yarn dev (or yarn build)
+```
+
+just make sure to have your package.json as it follows:
+```sh
+"scripts": {
+    "dev": "nodemon src/server.ts",
+    "build": "sucrase ./src -d ./dist --transforms typescript,imports"
+  }
+```
+aswell as your nodemon file with:
+```sh
+"watch": ["src"],
+    "ext": "ts",
+    "execMap": {
+        "ts": "sucrase-node src/server.ts"
+    }
+```
+
+## Project Structure
+
+* `src/controllers` follows the resource.controller name convention
+* `src/schemas` follows the resource.schemas name convention
+* `src/routes.ts` basic routing
+* `src/server.ts` listening to port (3333)
+
+## Commands
+
+```sh
+yarn build # Build production ready dist folder
+yarn dev # Start server in dev mode
+yarn lint # Lint project (eslint)
+```
+## Endpoints
+   - UserController
+      - GET /users
+      - POST /users
+         - Payload
+         ```json
+            {
+               name: String,
+               email: String,
+               username: String,
+               phone: String,
+            }
+      - DELETE /users/:id
+      
